@@ -22,7 +22,7 @@ var config = {
   	var trainFrequency = $('#frequency-input').val().trim();
 
   	
-
+  	// creating an object to store our data
   	var newTrain = {
   		name: trainName,
   		destination: trainDest,
@@ -58,7 +58,7 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
   var firstTime = childSnapshot.val().time;
   var trainFrequency = childSnapshot.val().frequency; 
 
-
+// math to determine when the next train will arrive and minutes until arrival
   var adjustedTime = moment(firstTime, "hh:mm").subtract(1, "years");
 
   var currentTime = moment();
